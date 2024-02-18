@@ -8,13 +8,13 @@ Step 1:
 Install [Tampermonkey](https://www.tampermonkey.net/) or similar.
 
 Step 2:
-Click this [link]() to install the script or copy this code into Tampermonkey.
+Click this [link](https://github.com/GodNooNoo/TrimpsModLoader/blob/main/tampermonkey.js) to install the script or copy the code from here https://github.com/GodNooNoo/TrimpsModLoader/blob/main/tampermonkey.js.
 
 ### Steam
 
 Step 1:
 
-Go to this link to open the mods.js file: <a href="https://github.com/SadAugust/AutoTrimps/blob/main/userFiles/mods.js">mods.js</a>  
+Go to this link to open the mods.js file: <a href="(https://github.com/GodNooNoo/TrimpsModLoader/blob/main/mods.js)">mods.js</a>  
 Then, right click the Raw button, hit Save link as, and save the mods.js file somewhere to your computer where you can find it, like desktop.  
 ![Download mods.js](https://i.imgur.com/opuO6yd.png)
 

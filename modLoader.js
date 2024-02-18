@@ -38,6 +38,7 @@ function _MLLoad() {
 			mod.loaded = true;
 		}
 	}
+	_setMLMods(mods);
 }
 
 function _MLActivateTooltip(elem) {
@@ -71,7 +72,7 @@ function _MLActivateTooltip(elem) {
 	ondisplay();
 }
 
-const _MLVersion = 1;
+const _MLVersion = "1";
 const _MLMods = {
 	Graphs: { enabled: false, loaded: false, src: 'https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js', desc: 'AProvides graphs of your performance over time. By Quia.' },
 	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalcStandalone.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
@@ -86,7 +87,7 @@ if (!_getMLMods()) {
 	_setMLMods(_MLMods);
 	localStorage.setItem("modLoaderVersion", _MLVersion);
 } else {
-	if (localStorage.getItem("modLoaderVerison") !== _MLVersion) {
+	if (localStorage.getItem("modLoaderVersion") !== _MLVersion) {
 		localStorage.removeItem("modLoaderVersion", _MLVersion);
 		_setMLMods(_MLMods);
 		localStorage.setItem("modLoaderVersion", _MLVersion);

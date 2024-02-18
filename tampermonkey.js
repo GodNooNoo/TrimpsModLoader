@@ -21,4 +21,4 @@ function injectScript(id, src) {
 	document.head.appendChild(script);
 }
 
-injectScript('ModLoader', 'https://github.com/GodNooNoo/TrimpsModLoader/blob/main/modLoader.js');
+injectScript('ModLoader', 'https://godnoonoo.github.io/TrimpsModLoader/modLoader.js');

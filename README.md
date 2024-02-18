@@ -2,7 +2,8 @@
 Tool for loading external mods to trimps. Once installed press the q/Q key on your keyboard.
 
 ## Usage  
-Press Q. If you uncheck a mod you will have to reload your game [ctrl+R] for the script to get unloaded.
+Press Q.  
+If you uncheck a mod you will have to reload your game [Ctrl+R] for the script to get unloaded.
 
 ## Compability  
 With other mods:  

@@ -106,8 +106,7 @@ document.addEventListener(
 	'keydown',
 	function (e) {
 		switch (e.keyCode) {
-			case 172: // Pipe character
-			case 220:
+			case 81: // Q character
 				if (loaderPopup) {
 					cancelTooltip();
 					loaderPopup = false;

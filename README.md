@@ -18,7 +18,7 @@ Step 1:
 Install [Tampermonkey](https://www.tampermonkey.net/) or similar.
 
 Step 2:  
-https://github.com/GodNooNoo/TrimpsModLoader/raw/main/tampermonkey.js or Copy the code from [here](https://github.com/GodNooNoo/TrimpsModLoader/blob/main/tampermonkey.js) to a new user script in Tampermonkey.
+Copy the code from [here](https://github.com/GodNooNoo/TrimpsModLoader/blob/main/tampermonkey.js) to a new user script in Tampermonkey.
 ### Steam
 
 Step 1:

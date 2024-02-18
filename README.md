@@ -1,6 +1,15 @@
 # TrimpsModLoader
 Tool for loading external mods to trimps. Once installed press the q/Q key on your keyboard.
 
+## Usage  
+Press Q. If you uncheck a mod you will have to reload your game [ctrl+R] for the script to get unloaded.
+
+## Compability  
+With other mods:  
+**AutoTrimps**: Untested, there is no reason for this not to work, there is also no reason to use both as AT already loads all of the same mods.
+
+Between mods in the loader: So far no issues, but up to the mods themselves.
+
 ## Installation guide
 
 ### Browser

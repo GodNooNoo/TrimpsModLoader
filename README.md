@@ -1,5 +1,5 @@
 # Trimps mod loader
-Tool for loading external mods to trimps. Once installed press the q/Q key on your keyboard.
+Tool for loading external mods to trimps.
 
 ## Usage  
 Press Q.  

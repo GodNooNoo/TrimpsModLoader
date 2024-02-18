@@ -20,4 +20,4 @@ function injectScript(id, src) {
 	document.head.appendChild(script);
 }
 
-injectScript('ModLoader', 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/spireTD.js');
+injectScript('SpireLoader', 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/spireTD.js');

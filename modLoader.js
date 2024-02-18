@@ -74,13 +74,13 @@ function _MLActivateTooltip(elem) {
 const _MLVersion = 1;
 const _MLMods = {
 	Graphs: { enabled: false, loaded: false, src: 'https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js', desc: 'AProvides graphs of your performance over time. By Quia.' },
-	ZFarm: { enabled: false, loaded: false, src: 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/farmCalcStandalone.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
-	TWSpeedup: { enabled: false, loaded: false, src: 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/gameUpdates.js', desc: 'Improves gamespeed during Time Warp. <b>Highly recommened for all users</b>. By August and NooNoo.' },
-	HeirloomHelp: { enabled: false, loaded: false, src: 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/heirloomCalc.js', desc: 'Gives suggestions for best heirloom upgrades. By Omsi6 and August.' },
-	MutationPresets: { enabled: false, loaded: false, src: 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/mutatorPreset.js', desc: 'Enables presets for mutations. By August.' },
-	Perky: { enabled: false, loaded: false, src: 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/perky.js', desc: 'Gives suggestions for good perk setups for Universe 1. By Grimmy and August.' },
-	SpireTDImport: { enabled: false, loaded: false, src: 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/spireTD.js', desc: 'Allows for importing layouts from SpireTD tools, such as swaqvalley.com/td_calc and spiredb.tdb.fi. Started by Sliverz, many since.' },
-	Surky: { enabled: false, loaded: false, src: 'https://github.com/SadAugust/AutoTrimps/blob/main/mods/surky.js', desc: 'Gives suggestions for good perk setups for Universe 2. By Surstromming and August.' }
+	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalcStandalone.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
+	TWSpeedup: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js', desc: 'Improves gamespeed during Time Warp. <b>Highly recommened for all users</b>. By August and NooNoo.' },
+	HeirloomHelp: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/heirloomCalc.js', desc: 'Gives suggestions for best heirloom upgrades. By Omsi6 and August.' },
+	MutationPresets: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/mutatorPreset.js', desc: 'Enables presets for mutations. By August.' },
+	Perky: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/perky.js', desc: 'Gives suggestions for good perk setups for Universe 1. By Grimmy and August.' },
+	SpireTDImport: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/spireTD.js', desc: 'Allows for importing layouts from SpireTD tools, such as swaqvalley.com/td_calc and spiredb.tdb.fi. Started by Sliverz, many since.' },
+	Surky: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/surky.js', desc: 'Gives suggestions for good perk setups for Universe 2. By Surstromming and August.' }
 };
 if (!_getMLMods()) {
 	_setMLMods(_MLMods);

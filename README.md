@@ -27,4 +27,5 @@ A folder where Trimps is installed inside Steam should open.
 Inside this folder, navigate to the mods folder (you should be in Steam\steamapps\common\Trimps\mods), and place the mods.js file there, like so:  
 ![Insert mods.js](https://imgur.com/muW6cUh.png)
 
-Advanced users: If you have other mods installed then just copy the text in AT's mods.js and place it somewhere in your existing mods.js file.
+### Advanced users
+If you have other mods installed then just copy the text in AT's mods.js and place it somewhere in your existing mods.js file.

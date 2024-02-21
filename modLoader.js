@@ -1,5 +1,6 @@
 function _injectScript(id, src) {
 	const script = document.createElement('script');
+	script.async = false;
 	script.id = id;
 	script.src = src;
 	script.setAttribute('crossorigin', 'anonymous');
@@ -11,7 +12,7 @@ function _setMLMods(mods) {
 }
 
 function _getMLMods() {
-	const mods = localStorage.getItem('modLoaderMods')
+	const mods = localStorage.getItem('modLoaderMods');
 	if (mods === null) return false;
 	return JSON.parse(mods);
 }
@@ -41,6 +42,11 @@ function _MLLoad() {
 	_setMLMods(mods);
 }
 
+function _cancelTooltip() {
+	loaderPopup = false;
+	cancelTooltip();
+}
+
 function _MLActivateTooltip(elem) {
 	tooltipText = "<div id='messageConfigMessage'>Here you can enabled mods. To unload a mod uncheck the mod then refresh your game. Mouse over the name of a mod for more info.</div>";
 	tooltipText += "<div class='row'>";
@@ -62,7 +68,7 @@ function _MLActivateTooltip(elem) {
 	elem.style.top = '25%';
 	elem.style.left = '25%';
 	swapClass('tooltipExtra', 'tooltipExtraLg', elem);
-	costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip();_MLConfirmSettings();'>Confirm</div> <div class='btn btn-danger' onclick='cancelTooltip()'>Cancel</div></div>";
+	costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='_cancelTooltip();_MLConfirmSettings();'>Confirm</div> <div class='btn btn-danger' onclick='_cancelTooltip()'>Cancel</div></div>";
 
 	document.getElementById('tipText').className = '';
 	document.getElementById('tipTitle').innerHTML = '<b> Mod Loader </b>';
@@ -72,11 +78,12 @@ function _MLActivateTooltip(elem) {
 	ondisplay();
 }
 
-const _MLVersion = "1";
+const _MLVersion = '2';
 const _MLMods = {
-	Graphs: { enabled: false, loaded: false, src: 'https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js', desc: 'AProvides graphs of your performance over time. By Quia.' },
-	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalcStandalone.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
+	// Make sure game-overwriting files are always loaded first.
 	TWSpeedup: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js', desc: 'Improves gamespeed during Time Warp. <b>Highly recommened for all users</b>. By August and NooNoo.' },
+	Graphs: { enabled: false, loaded: false, src: 'https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js', desc: 'Provides graphs of your performance over time. By Quia.' },
+	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalcStandalone.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
 	HeirloomHelp: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/heirloomCalc.js', desc: 'Gives suggestions for best heirloom upgrades. By Omsi6 and August.' },
 	MutationPresets: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/mutatorPreset.js', desc: 'Enables presets for mutations. By August.' },
 	Perky: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/perky.js', desc: 'Gives suggestions for good perk setups for Universe 1. By Grimmy and August.' },
@@ -85,12 +92,12 @@ const _MLMods = {
 };
 if (!_getMLMods()) {
 	_setMLMods(_MLMods);
-	localStorage.setItem("modLoaderVersion", _MLVersion);
+	localStorage.setItem('modLoaderVersion', _MLVersion);
 } else {
-	if (localStorage.getItem("modLoaderVersion") !== _MLVersion) {
-		localStorage.removeItem("modLoaderVersion", _MLVersion);
+	if (localStorage.getItem('modLoaderVersion') !== _MLVersion) {
+		localStorage.removeItem('modLoaderVersion', _MLVersion);
 		_setMLMods(_MLMods);
-		localStorage.setItem("modLoaderVersion", _MLVersion);
+		localStorage.setItem('modLoaderVersion', _MLVersion);
 	}
 	const mods = _getMLMods();
 	for (const mod of Object.values(mods)) {

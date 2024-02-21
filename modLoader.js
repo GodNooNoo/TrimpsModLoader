@@ -113,19 +113,19 @@ var loaderPopup = false;
 document.addEventListener(
 	'keydown',
 	function (e) {
-		switch (e.keyCode) {
-			case 81: // Q character
-				if (loaderPopup) {
+		if (e.keyCode == 81) {
+			// Q character
+			if (loaderPopup) {
+				cancelTooltip();
+				loaderPopup = false;
+			} else {
+				const elem = document.getElementById('tooltipDiv');
+				if (elem.style.display === 'block') {
 					cancelTooltip();
-					loaderPopup = false;
-				} else {
-					const elem = document.getElementById('tooltipDiv');
-					if (elem.style.display === 'block') {
-						cancelTooltip();
-					}
-					_MLActivateTooltip(elem);
-					loaderPopup = true;
 				}
+				_MLActivateTooltip(elem);
+				loaderPopup = true;
+			}
 		}
 	},
 	true

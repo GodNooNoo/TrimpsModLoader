@@ -83,7 +83,7 @@ const _MLMods = {
 	// Make sure game-overwriting files are always loaded first.
 	TWSpeedup: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js', desc: 'Improves gamespeed during Time Warp. <b>Highly recommened for all users</b>. By August and NooNoo.' },
 	Graphs: { enabled: false, loaded: false, src: 'https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js', desc: 'Provides graphs of your performance over time. By Quia.' },
-	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalcStandalone.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
+	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalc.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
 	HeirloomHelp: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/heirloomCalc.js', desc: 'Gives suggestions for best heirloom upgrades. By Omsi6 and August.' },
 	MutationPresets: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/mutatorPreset.js', desc: 'Enables presets for mutations. By August.' },
 	Perky: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/perky.js', desc: 'Gives suggestions for good perk setups for Universe 1. By Grimmy and August.' },

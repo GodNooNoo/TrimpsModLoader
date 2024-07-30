@@ -23,7 +23,7 @@ Click this [link](https://github.com/GodNooNoo/TrimpsModLoader/raw/main/tampermo
 
 Step 1:
 
-Go to to open the [mods.js](https://github.com/GodNooNoo/TrimpsModLoader/blob/main/mods.js) file.  
+Open the [mods.js](https://github.com/GodNooNoo/TrimpsModLoader/blob/main/mods.js) file.  
 Then, right click the Raw button, hit Save link as, and save the mods.js file somewhere to your computer where you can find it, like desktop.  
 ![Download mods.js](https://i.imgur.com/opuO6yd.png)
 

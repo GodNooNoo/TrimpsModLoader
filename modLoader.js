@@ -86,9 +86,8 @@ const _MLMods = {
 	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalc.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
 	HeirloomHelp: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/heirloomCalc.js', desc: 'Gives suggestions for best heirloom upgrades. By Omsi6 and August.' },
 	MutationPresets: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/mutatorPreset.js', desc: 'Enables presets for mutations. By August.' },
-	Perky: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/perky.js', desc: 'Gives suggestions for good perk setups for Universe 1. By Grimmy and August.' },
+	PerkCalculators: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/perky.js', desc: 'Gives suggestions for good perk setups. Uses Perky for U1 & Surky for U2. By Grimmy, Surstromming and August.' },
 	SpireTDImport: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/spireTD.js', desc: 'Allows for importing layouts from SpireTD tools, such as swaqvalley.com/td_calc and spiredb.tdb.fi. Started by Sliverz, many since.' },
-	Surky: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/surky.js', desc: 'Gives suggestions for good perk setups for Universe 2. By Surstromming and August.' }
 };
 if (!_getMLMods()) {
 	_setMLMods(_MLMods);

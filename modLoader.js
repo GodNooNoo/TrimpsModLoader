@@ -78,7 +78,7 @@ function _MLActivateTooltip(elem) {
 	ondisplay();
 }
 
-const _MLVersion = '3';
+const _MLVersion = '4';
 const _MLMods = {
 	// Make sure game-overwriting files are always loaded first.
 	TWSpeedup: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js', desc: 'Improves gamespeed during Time Warp. <b>Highly recommened for all users</b>. By August and NooNoo.' },

@@ -118,6 +118,7 @@ document.addEventListener(
 				cancelTooltip();
 				loaderPopup = false;
 			} else {
+				if (document.getElementById('tooltipDiv').style.display === 'block') return;
 				const elem = document.getElementById('tooltipDiv');
 				if (elem.style.display === 'block') {
 					cancelTooltip();

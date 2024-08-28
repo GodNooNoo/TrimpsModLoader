@@ -82,6 +82,7 @@ const _MLVersion = '5';
 const _MLMods = {
 	// Make sure game-overwriting files are always loaded first.
 	TWSpeedup: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js', desc: 'Improves gamespeed during Time Warp. <b>Highly recommended for all users</b>. By August and NooNoo.' },
+	RTDisplay: { enabled: false, loaded: false, src: 'https://stellar-demesne.github.io/Trimps-RunetrinketCounter/RunetrinketCounter.js', desc: 'Displays your runetrinkets on the main screen. By Wombats.'},
 	Graphs: { enabled: false, loaded: false, src: 'https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js', desc: 'Provides graphs of your performance over time. By Quia.' },
 	ZFarm: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/farmCalc.js', desc: 'Gives suggestions for the optimal map level for farming. By Grimmy and August.' },
 	HeirloomHelp: { enabled: false, loaded: false, src: 'https://sadaugust.github.io/AutoTrimps/mods/heirloomCalc.js', desc: 'Gives suggestions for best heirloom upgrades. By Omsi6 and August.' },

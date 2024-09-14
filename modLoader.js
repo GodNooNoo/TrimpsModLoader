@@ -78,6 +78,15 @@ function _MLActivateTooltip(elem) {
 	ondisplay();
 }
 
+function _setEnabledMLMods() {
+	const enabledMods = _getMLMods();
+	for (const [name, mod] of Object.entries(enabledMods)) {
+		if (mod.enabled) {
+			_MLMods[name].enabled = true;
+		}
+	}
+}
+
 const _MLVersion = '6';
 const _MLMods = {
 	// Make sure game-overwriting files are always loaded first.
@@ -96,6 +105,7 @@ if (!_getMLMods()) {
 } else {
 	if (localStorage.getItem('modLoaderVersion') !== _MLVersion) {
 		localStorage.removeItem('modLoaderVersion', _MLVersion);
+		_setEnabledMLMods();
 		_setMLMods(_MLMods);
 		localStorage.setItem('modLoaderVersion', _MLVersion);
 	}

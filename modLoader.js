@@ -89,7 +89,7 @@ function _setEnabledMLMods() {
     }
 }
 
-const _MLVersion = "7";
+const _MLVersion = "8";
 const _MLMods = {
     // Make sure game-overwriting files are always loaded first.
     TWSpeedup: {

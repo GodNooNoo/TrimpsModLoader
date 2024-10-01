@@ -98,11 +98,11 @@ const _MLMods = {
         src: "https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js",
         desc: "Improves gamespeed during Time Warp. <b>Highly recommended for all users</b>. By August and NooNoo.",
     },
-    VoidsDisplay: {
+    VoidsInfo: {
         enabled: false,
         loaded: false,
-        src: "https://github.com/stellar-demesne/Trimps-VoidMapClarifier",
-        desc: "Display void map information. By Wombats.",
+        src: "https://stellar-demesne.github.io/Trimps-VoidMapClarifier/VoidMapClarifier.js",
+        desc: "Display void drop information. By Wombats.",
     },
     RTDisplay: {
         enabled: false,

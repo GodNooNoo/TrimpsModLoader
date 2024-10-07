@@ -89,7 +89,7 @@ function _setEnabledMLMods() {
     }
 }
 
-const _MLVersion = "8";
+const _MLVersion = "9";
 const _MLMods = {
     // Make sure game-overwriting files are always loaded first.
     TWSpeedup: {
@@ -97,6 +97,12 @@ const _MLMods = {
         loaded: false,
         src: "https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js",
         desc: "Improves gamespeed during Time Warp. <b>Highly recommended for all users</b>. By August and NooNoo.",
+    },
+    BetterButtons: {
+        enabled: false,
+        loaded: false,
+        src: "https://stellar-demesne.github.io/Trimps-QWUI/qwUI.js",
+        desc: "Better buttons for everyone, all buttons accesible for screenreaders. By Quia and Wombats.",
     },
     VoidsInfo: {
         enabled: false,

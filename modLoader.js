@@ -171,7 +171,8 @@ var loaderPopup = false;
 document.addEventListener(
     "keydown",
     function (e) {
-        if (e.keyCode == 81) {
+        const keyCheck = e.keyCode == 81 && !e.shiftKey && !e.ctrlKey && !e.altKey && !e.metaKey;
+        if (keyCheck && e.target.tagName !== "INPUT") {
             // Q character
             if (loaderPopup) {
                 cancelTooltip();

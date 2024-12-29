@@ -4,11 +4,11 @@
 // @namespace	https://GodNooNoo.github.io/TrimpsModLoader
 // @description	Load all your mods!
 // @author		NooNoo
-// @match		*trimps.github.io*
-// @match		*kongregate.com/games/GreenSatellite/trimps
-// @match		*trimpstest58.netlify.app/*
-// @connect		*GodNooNoo.github.io/TrimpsModLoader*
-// @connect		*trimps.github.io*
+// @match       *://trimps.github.io/*
+// @match       *://kongregate.com/games/GreenSatellite/trimps/*
+// @match       *://trimpstest58.netlify.app/*
+// @connect     *://GodNooNoo.github.io/TrimpsModLoader/*
+// @connect     *://trimps.github.io/*
 // @connect		self
 // @grant		GM_xmlhttpRequest
 // ==/UserScript==

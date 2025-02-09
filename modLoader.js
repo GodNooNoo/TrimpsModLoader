@@ -83,13 +83,13 @@ function _MLActivateTooltip(elem) {
 function _setEnabledMLMods() {
     const enabledMods = _getMLMods();
     for (const [name, mod] of Object.entries(enabledMods)) {
-        if (mod.enabled && Object.hasOwn(_MLMods, name)) {
+        if (mod.enabled && Object.hasOwnProperty(_MLMods, name)) {
             _MLMods[name].enabled = true;
         }
     }
 }
 
-const _MLVersion = "10";
+const _MLVersion = "12";
 const _MLMods = {
     // Make sure game-overwriting files are always loaded first.
     // TWSpeedup: {

@@ -89,21 +89,21 @@ function _setEnabledMLMods() {
     }
 }
 
-const _MLVersion = "9";
+const _MLVersion = "10";
 const _MLMods = {
     // Make sure game-overwriting files are always loaded first.
-    TWSpeedup: {
-        enabled: false,
-        loaded: false,
-        src: "https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js",
-        desc: "Improves gamespeed during Time Warp. <b>Highly recommended for all users</b>. By August and NooNoo.",
-    },
-    BetterButtons: {
-        enabled: false,
-        loaded: false,
-        src: "https://stellar-demesne.github.io/Trimps-QWUI/qwUI.js",
-        desc: "Better buttons for everyone, all buttons accesible for screenreaders. By Quia and Wombats.",
-    },
+    // TWSpeedup: {
+    //     enabled: false,
+    //     loaded: false,
+    //     src: "https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js",
+    //     desc: "Improves gamespeed during Time Warp. <b>Highly recommended for all users</b>. By August and NooNoo.",
+    // },
+    // BetterButtons: {
+    //     enabled: false,
+    //     loaded: false,
+    //     src: "https://stellar-demesne.github.io/Trimps-QWUI/qwUI.js",
+    //     desc: "Better buttons for everyone, all buttons accesible for screenreaders. By Quia and Wombats.",
+    // },
     VoidsInfo: {
         enabled: false,
         loaded: false,
@@ -170,7 +170,7 @@ if (!_getMLMods()) {
     _setMLMods(mods);
 }
 
-if (game.global.stringVersion === "5.9.2") _MLLoad();
+if (game.global.stringVersion === "5.10.0") _MLLoad();
 
 var loaderPopup = false;
 

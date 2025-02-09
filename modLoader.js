@@ -83,7 +83,7 @@ function _MLActivateTooltip(elem) {
 function _setEnabledMLMods() {
     const enabledMods = _getMLMods();
     for (const [name, mod] of Object.entries(enabledMods)) {
-        if (mod.enabled) {
+        if (mod.enabled && Object.hasOwn(enabledMods, name)) {
             _MLMods[name].enabled = true;
         }
     }

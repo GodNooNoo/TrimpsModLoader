@@ -13,7 +13,7 @@
 // @grant		GM_xmlhttpRequest
 // ==/UserScript==
 
-function injectScript(id, src) {
+function loadScript(id, src) {
     const script = document.createElement("script");
     script.id = id;
     script.src = src;
@@ -21,4 +21,4 @@ function injectScript(id, src) {
     document.head.appendChild(script);
 }
 
-injectScript("ModLoader", "https://godnoonoo.github.io/TrimpsModLoader/modLoader.js");
+loadScript("ModLoader", "https://godnoonoo.github.io/TrimpsModLoader/modLoader.js");

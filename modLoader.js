@@ -89,7 +89,7 @@ function _setEnabledMLMods() {
     }
 }
 
-const _MLVersion = "13";
+const _MLVersion = "12";
 const _MLMods = {
     // Make sure game-overwriting files are always loaded first.
     // TWSpeedup: {
@@ -151,12 +151,6 @@ const _MLMods = {
         loaded: false,
         src: "https://sadaugust.github.io/AutoTrimps/mods/spireTD.js",
         desc: "Allows for importing layouts from SpireTD tools, such as swaqvalley.com/td_calc and spiredb.tdb.fi. Started by Sliverz, many since.",
-    },
-    MutationCounter: {
-        enabled: false,
-        loaded: false,
-        src: "https://github.com/stellar-demesne/Trimps-MutationCounter",
-        desc: "Displays information on mutated seeds in the world. By Wombats.",
     },
 };
 if (!_getMLMods()) {

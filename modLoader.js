@@ -170,7 +170,7 @@ if (!_getMLMods()) {
     _setMLMods(mods);
 }
 
-if (game.global.stringVersion === "5.10.0") _MLLoad();
+if (game.global.stringVersion === "5.10.1") _MLLoad();
 
 var loaderPopup = false;
 

@@ -16,7 +16,7 @@
 function loadScript(id, src) {
     const script = document.createElement("script");
     script.id = id;
-    script.src = src;
+    script.src = `${src}?${Math.floor(Date.now() / 60000) * 60000}`;
     script.setAttribute("crossorigin", "anonymous");
     document.head.appendChild(script);
 }

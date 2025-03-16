@@ -1,198 +1,174 @@
-function _injectScript(id, src) {
+const modLoader = {
+    get storageMods() {
+        return JSON.parse(localStorage.getItem("modLoaderMods"));
+    },
+
+    set storageMods(MLMods) {
+        localStorage.setItem("modLoaderMods", JSON.stringify(MLMods));
+    },
+
+    firstLoad() {
+        const mods = localStorage.getItem("modLoaderMods");
+        if (mods !== null) return;
+
+        console.log("No mods found in localStorage, loading defaults.");
+        this.storageMods = MLMods;
+    },
+
+    updateMods() {
+        const mods = this.storageMods;
+        for (const [mod, values] of Object.entries(mods)) {
+            if (mod in MLMods) {
+                MLMods[mod] = values;
+            }
+        }
+        this.storageMods = MLMods;
+    },
+
+    loadMods() {
+        for (const [mod, values] of Object.entries(this.storageMods)) {
+            if (values.enabled && document.getElementById(mod) === null) {
+                _loadScript(mod, values.src);
+            }
+        }
+    },
+
+    confirmSettings() {
+        for (const [name, mod] of Object.entries(MLMods)) {
+            const checkbox = document.getElementById("modLoader:" + name);
+            mod.enabled = readNiceCheckbox(checkbox);
+        }
+        this.storageMods = MLMods;
+        this.loadMods();
+    },
+
+    updateLocalStorage() {
+        this.firstLoad();
+        this.updateMods();
+    },
+};
+
+const modLoaderTooltip = {
+    popupDisplayed: false,
+
+    activateTooltip(elem) {
+        tooltipText =
+            "<div id='messageConfigMessage'>Here you can enabled mods. To unload a mod uncheck the mod then refresh your game. Mouse over the name of a mod for more info.</div>";
+        tooltipText += "<div class='row'>";
+        tooltipText += "<div class='col-xs-4'><span class='messageConfigTitle'></span>";
+        for (const [id, mod] of Object.entries(modLoader.storageMods)) {
+            tooltipText += "<span>";
+            tooltipText += buildNiceCheckbox("modLoader:" + id, false, mod.enabled, false, "Enable: " + id);
+            tooltipText += "</span>";
+            tooltipText += "<span onmouseover='modLoaderTooltip.hover(\"" + id + '", "' + mod.desc + "\")'";
+            tooltipText += "onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + id;
+            tooltipText += "</span><br/>";
+        }
+        tooltipText += "</div>";
+        game.global.lockTooltip = true;
+        elem.style.top = "25%";
+        elem.style.left = "25%";
+        swapClass("tooltipExtra", "tooltipExtraLg", elem);
+        costText =
+            "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='modLoaderTooltip.cancelTooltip();modLoader.confirmSettings();'>Confirm</div> <div class='btn btn-danger' onclick='modLoaderTooltip.cancelTooltip()'>Cancel</div></div>";
+
+        document.getElementById("tipText").className = "";
+        document.getElementById("tipTitle").innerHTML = "<b> Mod Loader </b>";
+        document.getElementById("tipText").innerHTML = tooltipText;
+        document.getElementById("tipCost").innerHTML = costText;
+        elem.style.display = "block";
+        verticalCenterTooltip();
+    },
+
+    cancelTooltip() {
+        modLoaderTooltip.popupDisplayed = false;
+        cancelTooltip();
+    },
+
+    hover(id, text) {
+        document.getElementById("messageConfigMessage").innerHTML = "<b>" + id + "</b> - " + text;
+    },
+
+    popup(e) {
+        const keyCheck = e.keyCode == 81 && !e.shiftKey && !e.ctrlKey && !e.altKey && !e.metaKey; // Q character
+        if (keyCheck && e.target.tagName !== "INPUT") {
+            if (modLoaderTooltip.popupDisplayed) {
+                modLoaderTooltip.cancelTooltip();
+            } else {
+                if (document.getElementById("tooltipDiv").style.display === "block") return;
+                const elem = document.getElementById("tooltipDiv");
+                if (elem.style.display === "block") {
+                    modLoaderTooltip.cancelTooltip();
+                }
+                modLoaderTooltip.activateTooltip(elem);
+                modLoaderTooltip.popupDisplayed = true;
+            }
+        }
+    },
+};
+
+function _loadScript(id, url) {
     const script = document.createElement("script");
-    script.async = false;
     script.id = id;
-    script.src = src;
-    script.setAttribute("crossorigin", "anonymous");
+    script.src = `${url}?${Math.floor(Date.now() / 60000) * 60000}`;
+    script.type = "text/javascript";
     document.head.appendChild(script);
 }
 
-function _setMLMods(mods) {
-    localStorage.setItem("modLoaderMods", JSON.stringify(mods));
-}
-
-function _getMLMods() {
-    const mods = localStorage.getItem("modLoaderMods");
-    if (mods === null) return false;
-    return JSON.parse(mods);
-}
-
-function _MLHover(title, text) {
-    document.getElementById("messageConfigMessage").innerHTML = "<b>" + title + "</b> - " + text;
-}
-
-function _MLConfirmSettings() {
-    const mods = _getMLMods();
-    for (const [name, mod] of Object.entries(mods)) {
-        const checkbox = document.getElementById("modLoader:" + name);
-        mod.enabled = readNiceCheckbox(checkbox);
-    }
-    _setMLMods(mods);
-    _MLLoad();
-}
-
-function _MLLoad() {
-    const mods = _getMLMods();
-    for (const [name, mod] of Object.entries(mods)) {
-        if (mod.enabled && !mod.loaded) {
-            _injectScript(name, mod.src);
-            mod.loaded = true;
-        }
-    }
-    _setMLMods(mods);
-}
-
-function _cancelTooltip() {
-    loaderPopup = false;
-    cancelTooltip();
-}
-
-function _MLActivateTooltip(elem) {
-    tooltipText =
-        "<div id='messageConfigMessage'>Here you can enabled mods. To unload a mod uncheck the mod then refresh your game. Mouse over the name of a mod for more info.</div>";
-    tooltipText += "<div class='row'>";
-    tooltipText += "<div class='col-xs-4'><span class='messageConfigTitle'></span>";
-    for (const [name, mod] of Object.entries(_getMLMods())) {
-        tooltipText += "<span>";
-        tooltipText += buildNiceCheckbox("modLoader:" + name, false, mod.enabled);
-        tooltipText += "</span>";
-        tooltipText += "<span onmouseover='_MLHover(\"" + name + '", "' + mod.desc + "\")'";
-        tooltipText += "onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + name;
-        tooltipText += "</span><br/>";
-    }
-    tooltipText += "</div>";
-
-    ondisplay = function () {
-        verticalCenterTooltip();
-    };
-    game.global.lockTooltip = true;
-    elem.style.top = "25%";
-    elem.style.left = "25%";
-    swapClass("tooltipExtra", "tooltipExtraLg", elem);
-    costText =
-        "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='_cancelTooltip();_MLConfirmSettings();'>Confirm</div> <div class='btn btn-danger' onclick='_cancelTooltip()'>Cancel</div></div>";
-
-    document.getElementById("tipText").className = "";
-    document.getElementById("tipTitle").innerHTML = "<b> Mod Loader </b>";
-    document.getElementById("tipText").innerHTML = tooltipText;
-    document.getElementById("tipCost").innerHTML = costText;
-    elem.style.display = "block";
-    ondisplay();
-}
-
-function _setEnabledMLMods() {
-    const enabledMods = _getMLMods();
-    for (const [name, mod] of Object.entries(enabledMods)) {
-        if (mod.enabled && Object.hasOwnProperty(_MLMods, name)) {
-            _MLMods[name].enabled = true;
-        }
-    }
-}
-
-const _MLVersion = "12";
-const _MLMods = {
-    // Make sure game-overwriting files are always loaded first.
-    // TWSpeedup: {
-    //     enabled: false,
-    //     loaded: false,
-    //     src: "https://sadaugust.github.io/AutoTrimps/mods/gameUpdates.js",
-    //     desc: "Improves gamespeed during Time Warp. <b>Highly recommended for all users</b>. By August and NooNoo.",
-    // },
-    // BetterButtons: {
-    //     enabled: false,
-    //     loaded: false,
-    //     src: "https://stellar-demesne.github.io/Trimps-QWUI/qwUI.js",
-    //     desc: "Better buttons for everyone, all buttons accesible for screenreaders. By Quia and Wombats.",
-    // },
+const MLMods = {
+    MazIO: {
+        enabled: false,
+        src: "https://stellar-demesne.github.io/Trimps-QWUI/mazIO.js",
+        desc: "Adds importing and exporting Map at Zone configs. By Quia.",
+    },
     VoidsInfo: {
         enabled: false,
-        loaded: false,
         src: "https://stellar-demesne.github.io/Trimps-VoidMapClarifier/VoidMapClarifier.js",
         desc: "Display void drop information. By Wombats.",
     },
-    RTDisplay: {
+    RunetrinketInfo: {
         enabled: false,
-        loaded: false,
         src: "https://stellar-demesne.github.io/Trimps-RunetrinketCounter/RunetrinketCounter.js",
         desc: "Displays your runetrinkets on the main screen. By Wombats.",
     },
+    SeedsInfo: {
+        enabled: false,
+        src: "https://stellar-demesne.github.io/Trimps-MutationCounter/MutationCounter.js",
+        desc: "Displays information about mutated seeds for the current zone. By Wombats.",
+    },
     Graphs: {
         enabled: false,
-        loaded: false,
         src: "https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js",
         desc: "Provides graphs of your performance over time. By Quia.",
     },
     ZFarm: {
         enabled: false,
-        loaded: false,
         src: "https://sadaugust.github.io/AutoTrimps/mods/farmCalc.js",
         desc: "Gives suggestions for the optimal map level for farming. By Grimmy and August.",
     },
     HeirloomHelp: {
         enabled: false,
-        loaded: false,
         src: "https://sadaugust.github.io/AutoTrimps/mods/heirloomCalc.js",
         desc: "Gives suggestions for best heirloom upgrades. By Omsi6 and August.",
     },
     MutationPresets: {
         enabled: false,
-        loaded: false,
         src: "https://sadaugust.github.io/AutoTrimps/mods/mutatorPreset.js",
         desc: "Enables presets for mutations. By August.",
     },
     PerkCalculators: {
         enabled: false,
-        loaded: false,
         src: "https://sadaugust.github.io/AutoTrimps/mods/perky.js",
         desc: "Gives suggestions for good perk setups. Uses Perky for U1 & Surky for U2. By Grimmy, Surstromming and August.",
     },
     SpireTDImport: {
         enabled: false,
-        loaded: false,
         src: "https://sadaugust.github.io/AutoTrimps/mods/spireTD.js",
-        desc: "Allows for importing layouts from SpireTD tools, such as swaqvalley.com/td_calc and spiredb.tdb.fi. Started by Sliverz, many since.",
+        desc: "Allows for importing layouts from SpireTD tools, such as `swaqvalley.com/td_calc` and `spiredb.tdb.fi`. Started by Sliverz, many since.",
     },
 };
-if (!_getMLMods()) {
-    _setMLMods(_MLMods);
-    localStorage.setItem("modLoaderVersion", _MLVersion);
-} else {
-    if (localStorage.getItem("modLoaderVersion") !== _MLVersion) {
-        localStorage.removeItem("modLoaderVersion", _MLVersion);
-        _setEnabledMLMods();
-        _setMLMods(_MLMods);
-        localStorage.setItem("modLoaderVersion", _MLVersion);
-    }
-    const mods = _getMLMods();
-    for (const mod of Object.values(mods)) {
-        mod.loaded = false;
-    }
-    _setMLMods(mods);
-}
 
-if (game.global.stringVersion === "5.10.1") _MLLoad();
+modLoader.updateLocalStorage();
+modLoader.loadMods();
 
-var loaderPopup = false;
-
-document.addEventListener(
-    "keydown",
-    function (e) {
-        const keyCheck = e.keyCode == 81 && !e.shiftKey && !e.ctrlKey && !e.altKey && !e.metaKey;
-        if (keyCheck && e.target.tagName !== "INPUT") {
-            // Q character
-            if (loaderPopup) {
-                cancelTooltip();
-                loaderPopup = false;
-            } else {
-                if (document.getElementById("tooltipDiv").style.display === "block") return;
-                const elem = document.getElementById("tooltipDiv");
-                if (elem.style.display === "block") {
-                    cancelTooltip();
-                }
-                _MLActivateTooltip(elem);
-                loaderPopup = true;
-            }
-        }
-    },
-    true
-);
+document.addEventListener("keydown", modLoaderTooltip.popup, true);

@@ -166,6 +166,10 @@ const MLMods = {
         src: "https://sadaugust.github.io/AutoTrimps/mods/spireTD.js",
         desc: "Allows for importing layouts from SpireTD tools, such as `swaqvalley.com/td_calc` and `spiredb.tdb.fi`. Started by Sliverz, many since.",
     },
+    MinigamesTooltips: {
+        enabled: false,
+        src: "https://stellar-demesne.github.io/Trimps-MinigameSummaryTooltips/SMinigameTooltips.js",
+        desc: "Displays information from minigames on the main screen. By Wombats."
 };
 
 modLoader.updateLocalStorage();

@@ -1,4 +1,4 @@
-# Trimps mod loader
+# Trimps Mod Loader
 Tool for loading external mods to trimps.
 
 ## Usage  

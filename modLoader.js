@@ -170,6 +170,7 @@ const MLMods = {
         enabled: false,
         src: "https://stellar-demesne.github.io/Trimps-MinigameSummaryTooltips/SMinigameTooltips.js",
         desc: "Displays information from minigames on the main screen. By Wombats."
+    },
 };
 
 modLoader.updateLocalStorage();

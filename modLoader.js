@@ -136,6 +136,11 @@ const MLMods = {
         src: "https://stellar-demesne.github.io/Trimps-MutationCounter/MutationCounter.js",
         desc: "Displays information about mutated seeds for the current zone. By Wombats.",
     },
+    AltupgradesInfo: {
+        enabled: false,
+        src: "https://stellar-demesne.github.io/Trimps-AltUpgradesTooltips/AltUpgradeTooltips.js",
+        desc: "Displays summaries for certain upgrade systems on the main screen. By Wombats.",
+    },
     Graphs: {
         enabled: false,
         src: "https://Quiaaaa.github.io/AutoTrimps/GraphsOnly.js",

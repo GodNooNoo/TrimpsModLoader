@@ -139,7 +139,7 @@ const MLMods = {
     AltupgradesInfo: {
         enabled: false,
         src: "https://stellar-demesne.github.io/Trimps-AltUpgradesTooltips/AltUpgradeTooltips.js",
-        desc: "Displays summaries for certain upgrade systems on the main screen. By Wombats.",
+        desc: "Displays summaries for masteries and mutations on the main screen. By Wombats.",
     },
     Graphs: {
         enabled: false,
